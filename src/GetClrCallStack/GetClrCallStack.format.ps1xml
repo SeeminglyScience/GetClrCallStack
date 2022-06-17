@@ -1,0 +1,53 @@
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>GetClrCallStack.ClrStackFrameInfo</Name>
+            <ViewSelectedBy>
+                <TypeName>GetClrCallStack.ClrStackFrameInfo</TypeName>
+            </ViewSelectedBy>
+            <GroupBy>
+                <PropertyName>ManagedThreadId</PropertyName>
+                <CustomControl>
+                    <CustomEntries>
+                        <CustomEntry>
+                            <CustomItem>
+                                <Frame>
+                                    <CustomItem>
+                                        <Text>    </Text>
+                                        <Text>Thread: </Text>
+                                        <ExpressionBinding>
+                                            <PropertyName>ThreadName</PropertyName>
+                                        </ExpressionBinding>
+                                    </CustomItem>
+                                </Frame>
+                            </CustomItem>
+                        </CustomEntry>
+                    </CustomEntries>
+                </CustomControl>
+            </GroupBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>
+                        <Label>IL</Label>
+                        <Width>6</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader />
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <Wrap>true</Wrap>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>ILOffset</PropertyName>
+                                <FormatString>0x{0:X3}</FormatString>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Method</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>
